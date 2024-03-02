@@ -1,5 +1,7 @@
-import TopNav from "@/components/layout/TopNav";
 import { FC } from "react";
+import dynamic from "next/dynamic";
+
+const TopNav = dynamic(() => import("@/components/layout/TopNav"));
 
 interface AppLayoutProps extends React.PropsWithChildren<{}> {}
 

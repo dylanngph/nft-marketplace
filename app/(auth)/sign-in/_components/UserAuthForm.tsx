@@ -3,7 +3,7 @@
 import { cn } from "@/libs/utils/cn";
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Connector, useAccount, useConnect, useSignMessage } from "wagmi";
+import { useAccount, useConnect, useSignMessage } from "wagmi";
 import Image from "next/image";
 import { connectorsHelper } from "@/libs/utils/web3-connectors";
 import { SiweMessage } from "siwe";

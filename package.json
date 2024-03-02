@@ -16,7 +16,6 @@
     "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
-    "connectkit": "^1.7.2",
     "cssnano": "^6.0.5",
     "ethers": "5.7",
     "framer-motion": "^11.0.8",

@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import UserAuthForm from "./_components/UserAuthForm";
+import dynamic from "next/dynamic";
+
+const UserAuthForm = dynamic(() => import("./_components/UserAuthForm"));
 
 const SignInPage = () => {
   return (
