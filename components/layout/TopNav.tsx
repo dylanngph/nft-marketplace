@@ -67,7 +67,7 @@ const TopNav = () => {
           <Link href="#">Login</Link>
         </NavbarItem> */}
         <NavbarItem>
-          <Button as={Link} color="primary" href="/sign-in" variant="flat">
+          <Button as={Link} color="primary" href="#" variant="flat">
             Sign In
           </Button>
         </NavbarItem>
