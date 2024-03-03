@@ -10,8 +10,11 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   Button,
+  Input,
 } from "@nextui-org/react";
 import Link from "next/link";
+import { navItems } from "@/configs/site/navigation";
+import { FaXTwitter, FaGithub, FaTelegram, FaDiscord } from "react-icons/fa6";
 
 const TopNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,36 +42,60 @@ const TopNav = () => {
         wrapper: "px-0",
       }}
     >
-      <NavbarContent>
+      <NavbarContent className="gap-8">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
-        <NavbarBrand>
-          <p className="font-bold text-inherit">ACME</p>
+        <NavbarBrand className="flex-grow-0">
+          <h4 className="font-bold text-inherit text-xl">DegenStarter</h4>
         </NavbarBrand>
+        <NavbarContent className="hidden sm:flex gap-6" justify="center">
+          <NavbarItem>
+            <Input
+              variant="bordered"
+              size="sm"
+              radius="full"
+              placeholder="Search"
+              classNames={{
+                inputWrapper: "border shadow-none min-w-[300px]",
+              }}
+            />
+          </NavbarItem>
+          {navItems.map((item, index) => (
+            <NavbarItem key={`${item}-${index}`}>
+              <Link href={item.href}>{item.label}</Link>
+            </NavbarItem>
+          ))}
+        </NavbarContent>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link href="#">Features</Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="#">Integrations</Link>
-        </NavbarItem>
-      </NavbarContent>
       <NavbarContent justify="end">
-        {/* <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem> */}
+        <NavbarContent justify="end" className="hidden sm:flex gap-1">
+          <NavbarItem>
+            <Button variant="light" radius="full" isIconOnly>
+              <FaXTwitter size={20} />
+            </Button>
+          </NavbarItem>
+          <NavbarItem>
+            <Button variant="light" radius="full" isIconOnly>
+              <FaGithub size={20} />
+            </Button>
+          </NavbarItem>
+          <NavbarItem>
+            <Button variant="light" radius="full" isIconOnly>
+              <FaTelegram size={20} />
+            </Button>
+          </NavbarItem>
+          <NavbarItem>
+            <Button variant="light" radius="full" isIconOnly>
+              <FaDiscord size={24} />
+            </Button>
+          </NavbarItem>
+        </NavbarContent>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign In
+          <Button as={Link} href="#" radius="full" color="primary">
+            Connect Wallet
           </Button>
         </NavbarItem>
       </NavbarContent>
